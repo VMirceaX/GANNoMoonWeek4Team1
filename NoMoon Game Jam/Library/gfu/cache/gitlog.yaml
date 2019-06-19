@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -530159753, guid: 68c7e4565cde54155bb78d8e935f1ddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cacheType: 3
+  lastUpdatedAtString: 2019-06-19T23:37:21.239+01:00
+  initializedAtString: 2019-06-19T23:35:12.703+01:00
+  log:
+  - commitID: 62cccbc7661bbdc4529d2a2c586001a9d05762f0
+    mergeA: 
+    mergeB: 
+    authorName: TorpidGamer
+    authorEmail: ToddNorrish85@gmail.com
+    commitEmail: ToddNorrish85@gmail.com
+    commitName: TorpidGamer
+    summary: scene updates
+    description: god i hope that it works
+    timeString: 2019-06-19T23:37:20.000+01:00
+    commitTimeString: 2019-06-19T23:37:20.000+01:00
+    changes:
+    - path: Assets\Scenes\Mishu Scene.unity
+      fullPath: D:\Game engines\Unity\Projects\NoMoon Game Jam\Assets\Scenes\Mishu
+        Scene.unity
+      projectPath: Assets\Scenes\Mishu Scene.unity
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Assets\Scenes\Mishu Scene.unity.meta
+      fullPath: D:\Game engines\Unity\Projects\NoMoon Game Jam\Assets\Scenes\Mishu
+        Scene.unity.meta
+      projectPath: Assets\Scenes\Mishu Scene.unity.meta
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Assets\Scenes\Redz Scene.unity
+      fullPath: D:\Game engines\Unity\Projects\NoMoon Game Jam\Assets\Scenes\Redz
+        Scene.unity
+      projectPath: Assets\Scenes\Redz Scene.unity
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Assets\Scenes\Redz Scene.unity.meta
+      fullPath: D:\Game engines\Unity\Projects\NoMoon Game Jam\Assets\Scenes\Redz
+        Scene.unity.meta
+      projectPath: Assets\Scenes\Redz Scene.unity.meta
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Assets\Scenes\Sorin Scene.unity
+      fullPath: D:\Game engines\Unity\Projects\NoMoon Game Jam\Assets\Scenes\Sorin
+        Scene.unity
+      projectPath: Assets\Scenes\Sorin Scene.unity
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Assets\Scenes\Sorin Scene.unity.meta
+      fullPath: D:\Game engines\Unity\Projects\NoMoon Game Jam\Assets\Scenes\Sorin
+        Scene.unity.meta
+      projectPath: Assets\Scenes\Sorin Scene.unity.meta
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Assets\Scenes\Todd Scene.unity
+      fullPath: D:\Game engines\Unity\Projects\NoMoon Game Jam\Assets\Scenes\Todd
+        Scene.unity
+      projectPath: Assets\Scenes\Todd Scene.unity
+      originalPath: 
+      status: 4
+      staged: 0
+    - path: Assets\Scenes\Todd Scene.unity.meta
+      fullPath: D:\Game engines\Unity\Projects\NoMoon Game Jam\Assets\Scenes\Todd
+        Scene.unity.meta
+      projectPath: Assets\Scenes\Todd Scene.unity.meta
+      originalPath: 
+      status: 4
+      staged: 0
+  - commitID: 3c2effcef45c49321ffd9d952b4261a0fc0b5f78
+    mergeA: 
+    mergeB: 
+    authorName: VMirceaX
+    authorEmail: 36229124+VMirceaX@users.noreply.github.com
+    commitEmail: 36229124+VMirceaX@users.noreply.github.com
+    commitName: VMirceaX
+    summary: Initial commit
+    description: 
+    timeString: 2019-06-18T20:54:06.000+01:00
+    commitTimeString: 2019-06-18T20:54:06.000+01:00
+    changes:
+    - path: .gitattributes
+      fullPath: D:\Game engines\Unity\Projects\NoMoon Game Jam\.gitattributes
+      projectPath: .gitattributes
+      originalPath: 
+      status: 4
+      staged: 0
