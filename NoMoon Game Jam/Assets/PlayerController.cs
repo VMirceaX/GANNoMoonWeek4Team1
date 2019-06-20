@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,19 +10,28 @@ public class PlayerController : MonoBehaviour
     public float gravity = 30f;
     private Vector3 moveDir = Vector3.zero;
     private CharacterController controller;
+    public Gamepad thisGamepad;
+    public Keyboard thisKeyboard;
+    public bool keyboardOrGamepad; //true == keyboard, false == gamepad
+
 
     void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
     }
 
+    void FixedUpdate()
+    {
+        
+    }
+
     void Update()
     {
         moveDir.y -= gravity * Time.deltaTime;
 
-        if (controller.isGrounded)
+        if (controller.isGrounded && !keyboardOrGamepad)
         {
-            moveDir = new Vector3(Input.GetAxisRaw("Horizontal") * moveSpeed, 0 - gravity * Time.deltaTime, Input.GetAxisRaw("Vertical") * moveSpeed);
+            moveDir = new Vector3(thisGamepad.leftStick.ReadValue().x * moveSpeed, 0 - gravity * Time.deltaTime, thisGamepad.leftStick.ReadValue().y * moveSpeed);
             moveDir = transform.TransformDirection(moveDir);
             moveDir *= moveSpeed;
 
@@ -31,9 +41,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        else if (!controller.isGrounded)
+        else if (!controller.isGrounded && !keyboardOrGamepad)
         {
-            moveDir = new Vector3(Input.GetAxisRaw("Horizontal") * moveSpeed, moveDir.y, Input.GetAxisRaw("Vertical") * moveSpeed);
+            moveDir = new Vector3(thisGamepad.leftStick.ReadValue().x * moveSpeed, moveDir.y, thisGamepad.leftStick.ReadValue().y * moveSpeed);
             moveDir = transform.TransformDirection(moveDir);
 
             moveDir.x *= moveSpeed;
