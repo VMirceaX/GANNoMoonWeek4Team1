@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     public float itemDistanceCheck;
     public ItemActionScript[] sceneItems;
     public GroupInventory inventory;
-    public SpriteRenderer interactButton;
 
     void Start()
     {
@@ -43,33 +42,28 @@ public class PlayerController : MonoBehaviour
         {
             if (Vector3.Distance(item.transform.position, transform.position) <= itemDistanceCheck && thisGamepad != null)
             {
-                interactButton.enabled = true;
+
+
                 if (thisGamepad.buttonWest.isPressed)
                 {
                     inventory.itemAmounts[item.item.itemName] = inventory.itemAmounts[item.item.itemName] + 1;
                     Debug.Log(inventory.itemAmounts[item.item.itemName]);
                     Destroy(item.gameObject);
                     inventory.itemPickedUp = true;
-                    interactButton.enabled = false;
                 }
             }
 
-            if (Vector3.Distance(item.transform.position, transform.position) <= itemDistanceCheck && thisKeyboard != null)
+            else if (Vector3.Distance(item.transform.position, transform.position) <= itemDistanceCheck && thisKeyboard != null)
             {
-                interactButton.enabled = true;
+
+
                 if (thisKeyboard.eKey.isPressed)
                 {
                     inventory.itemAmounts[item.item.itemName] = inventory.itemAmounts[item.item.itemName] + 1;
                     Debug.Log(inventory.itemAmounts[item.item.itemName]);
                     Destroy(item.gameObject);
                     inventory.itemPickedUp = true;
-                    interactButton.enabled = false;
                 }
-            }
-
-            else
-            {
-
             }
         }
     }
