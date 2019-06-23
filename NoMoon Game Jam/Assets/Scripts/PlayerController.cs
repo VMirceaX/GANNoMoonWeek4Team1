@@ -213,7 +213,7 @@ public class PlayerController : MonoBehaviour
             {
 
 
-                if (thisGamepad.buttonEast.isPressed)
+                if (thisGamepad.buttonEast.isPressed && !(inventory.groupWeight + item.item.weight >= inventory.maxWeight))
                 {
                     inventory.itemAmounts[item.item.itemName] = inventory.itemAmounts[item.item.itemName] + 1;
                     Debug.Log(inventory.itemAmounts[item.item.itemName]);
@@ -226,7 +226,7 @@ public class PlayerController : MonoBehaviour
             {
 
 
-                if (thisKeyboard.eKey.isPressed)
+                if (thisKeyboard.eKey.isPressed && !(inventory.groupWeight + item.item.weight >= inventory.maxWeight))
                 {
                     inventory.itemAmounts[item.item.itemName] = inventory.itemAmounts[item.item.itemName] + 1;
                     Debug.Log(inventory.itemAmounts[item.item.itemName]);

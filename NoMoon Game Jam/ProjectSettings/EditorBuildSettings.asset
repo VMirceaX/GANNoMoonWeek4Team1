@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Mishu Scene.unity
+    guid: b13cddb35dba7fe4b829899e639c652d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e3aacb09c2b1fd744b36a5b3cda49e86,
       type: 2}

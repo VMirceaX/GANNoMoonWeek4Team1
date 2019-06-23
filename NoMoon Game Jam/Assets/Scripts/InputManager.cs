@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InputManager : MonoBehaviour
     public Keyboard keyboard;
     public Gamepad gamepad1, gamepad2, gamepad3, gamepad4;
     public PlayerController player1, player2, player3, player4;
+    public Image playerIcon1, playerIcon2, playerIcon3, playerIcon4;
     public int players, assignedControllers, playersAlive;
 
     void Start()
@@ -20,7 +22,10 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        
+        playerIcon1.sprite = player1.heldItem.image;
+        playerIcon2.sprite = player2.heldItem.image;
+        playerIcon3.sprite = player3.heldItem.image;
+        playerIcon4.sprite = player4.heldItem.image;
     }
 
     void AssignControllers()
@@ -79,6 +84,7 @@ public class InputManager : MonoBehaviour
             player3.thisGamepad = gamepad3;
             player4.thisGamepad = null;
             Dead("player4");
+            playerIcon4.enabled = false;
         }
 
         else if (players == 2 && assignedControllers == players)
@@ -89,6 +95,8 @@ public class InputManager : MonoBehaviour
             player4.thisGamepad = null;
             Dead("player3");
             Dead("player4");
+            playerIcon4.enabled = false;
+            playerIcon3.enabled = false;
         }
 
         else if (players == 4 && assignedControllers != players)
@@ -110,6 +118,7 @@ public class InputManager : MonoBehaviour
             player3.thisGamepad = gamepad2;
             player4.thisGamepad = null;
             Dead("player4");
+            playerIcon4.enabled = false;
         }
 
         else if (players == 2 && assignedControllers != players)
@@ -122,6 +131,8 @@ public class InputManager : MonoBehaviour
             player4.thisGamepad = null;
             Dead("player3");
             Dead("player4");
+            playerIcon4.enabled = false;
+            playerIcon3.enabled = false;
         }
 
         else if(players == assignedControllers + 2)

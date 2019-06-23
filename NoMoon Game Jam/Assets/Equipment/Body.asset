@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Body
   m_EditorClassIdentifier: 
   itemName: Body
-  weight: 3
-  image: {fileID: 0}
-  mesh: {fileID: 0}
+  weight: 6
+  image: {fileID: 21300000, guid: da0647397e066544f8f7026b9c06e4b2, type: 3}

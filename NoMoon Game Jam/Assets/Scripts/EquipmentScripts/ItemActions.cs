@@ -129,7 +129,7 @@ public class ItemActions : MonoBehaviour
 
         void Rope()
         {
-            if (Physics.Raycast(transform.position, transform.up + face, out hit, ropeMaxRaycast, ropeRaycastMask))
+            if (Physics.Raycast(transform.position, transform.up, out hit, ropeMaxRaycast, ropeRaycastMask))
             {
                 ropeConnect = true;
             }
