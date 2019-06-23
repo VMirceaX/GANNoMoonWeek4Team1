@@ -48,8 +48,9 @@ public class ItemActions : MonoBehaviour
             face = new Vector3(0, 0, -1);
         }
 
-        if (!currentPlayer.keyboardOrGamepad && currentPlayer.heldItem != null)
+        if (!currentPlayer.keyboardOrGamepad && currentPlayer.heldItem != null && currentPlayer.enabled)
         {
+            #region Rope
             if (currentPlayer.thisGamepad.buttonWest.isPressed)
             {
                 itemfunction = currentPlayer.heldItem.itemName;
@@ -70,20 +71,25 @@ public class ItemActions : MonoBehaviour
                 GetComponent<CharacterController>().enabled = false;
             }
 
-            else if (ropeConnect && ropeState)
+            else if (ropeConnect && ropeState && coolDownTimer <= 0)
             {
                 if (currentPlayer.thisGamepad.buttonEast.isPressed)
                 {
                     ropeJoint.connectedBody = null;
                     GetComponent<CharacterController>().enabled = true;
+                    rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                    transform.rotation = new Quaternion(0, 0, 0, 0);
                     ropeConnect = false;
                     ropeState = false;
+                    coolDownTimer = 0.5f;
                 }
             }
+            #endregion
         }
 
-        else if (currentPlayer.keyboardOrGamepad && currentPlayer.heldItem != null)
+        else if (currentPlayer.keyboardOrGamepad && currentPlayer.heldItem != null && currentPlayer.enabled)
         {
+            #region Rope
             if (currentPlayer.thisKeyboard.fKey.isPressed && coolDownTimer <= 0)
             {
                 itemfunction = currentPlayer.heldItem.itemName;
@@ -117,8 +123,9 @@ public class ItemActions : MonoBehaviour
                     coolDownTimer = 0.5f;
                 }
             }
+            #endregion 
         }
-        
+
 
         void Rope()
         {

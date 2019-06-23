@@ -78,6 +78,7 @@ public class InputManager : MonoBehaviour
             player2.thisGamepad = gamepad2;
             player3.thisGamepad = gamepad3;
             player4.thisGamepad = null;
+            Dead("player4");
         }
 
         else if (players == 2 && assignedControllers == players)
@@ -86,6 +87,8 @@ public class InputManager : MonoBehaviour
             player2.thisGamepad = gamepad2;
             player3.thisGamepad = null;
             player4.thisGamepad = null;
+            Dead("player3");
+            Dead("player4");
         }
 
         else if (players == 4 && assignedControllers != players)
@@ -106,6 +109,7 @@ public class InputManager : MonoBehaviour
             player2.thisGamepad = gamepad1;
             player3.thisGamepad = gamepad2;
             player4.thisGamepad = null;
+            Dead("player4");
         }
 
         else if (players == 2 && assignedControllers != players)
@@ -116,6 +120,8 @@ public class InputManager : MonoBehaviour
             player2.thisGamepad = gamepad1;
             player3.thisGamepad = null;
             player4.thisGamepad = null;
+            Dead("player3");
+            Dead("player4");
         }
 
         else if(players == assignedControllers + 2)
@@ -128,21 +134,25 @@ public class InputManager : MonoBehaviour
     {
         if (player == "player1")
         {
+            player1.GetComponent<PickupScript>().enabled = true;
             player1.enabled = false;
         }
 
         else if (player == "player2")
         {
+            player2.GetComponent<PickupScript>().enabled = true;
             player2.enabled = false;
         }
 
         else if (player == "player3")
         {
+            player3.GetComponent<PickupScript>().enabled = true;
             player3.enabled = false;
         }
 
         else if (player == "player4")
         {
+            player4.GetComponent<PickupScript>().enabled = true;
             player4.enabled = false;
         }
     }

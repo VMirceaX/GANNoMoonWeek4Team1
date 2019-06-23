@@ -10,6 +10,7 @@ public class PickupScript : MonoBehaviour
     public bool inDistance1, inDistance2, inDistance3, inDistance4;
     public string pInDistance;
     public Equipment item;
+    public float coolDownTimer = 60;
 
     void Start()
     {
@@ -20,6 +21,13 @@ public class PickupScript : MonoBehaviour
     void Update()
     {
         ButtonPrompt();
+        coolDownTimer -= Time.deltaTime;
+        if (coolDownTimer <= 0)
+        {
+            players = new PlayerController[FindObjectsOfType<PlayerController>().Length];
+            players = FindObjectsOfType<PlayerController>();
+            coolDownTimer = 60;
+        }
     }
 
     void ButtonPrompt()
