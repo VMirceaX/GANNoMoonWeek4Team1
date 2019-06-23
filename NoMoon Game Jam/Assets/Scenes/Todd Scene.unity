@@ -167,7 +167,7 @@ MonoBehaviour:
   sceneItems: []
   inventory: {fileID: 2108552458}
   heldItem: {fileID: 11400000, guid: 6ed022e036373f14581657a8dac00e12, type: 2}
-  ropeMoveForce: 1
+  ropeMoveForce: 15
 --- !u!143 &136489296
 CharacterController:
   m_ObjectHideFlags: 0
@@ -498,7 +498,7 @@ MonoBehaviour:
   sceneItems: []
   inventory: {fileID: 2108552458}
   heldItem: {fileID: 11400000, guid: 6ed022e036373f14581657a8dac00e12, type: 2}
-  ropeMoveForce: 1
+  ropeMoveForce: 15
 --- !u!143 &428335391
 CharacterController:
   m_ObjectHideFlags: 0
@@ -887,7 +887,7 @@ MonoBehaviour:
   sceneItems: []
   inventory: {fileID: 2108552458}
   heldItem: {fileID: 0}
-  ropeMoveForce: 0
+  ropeMoveForce: 15
 --- !u!143 &1512052736
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   sceneItems: []
   inventory: {fileID: 2108552458}
   heldItem: {fileID: 0}
-  ropeMoveForce: 0
+  ropeMoveForce: 15
 --- !u!143 &1891962995
 CharacterController:
   m_ObjectHideFlags: 0

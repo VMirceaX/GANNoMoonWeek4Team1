@@ -25,10 +25,7 @@ public class ItemActions : MonoBehaviour
 
     void Update()
     {
-        if (ropeConnect)
-        {
-            coolDownTimer -= Time.deltaTime;
-        }
+        coolDownTimer -= Time.deltaTime;        
 
         if (currentPlayer.moveDir.x > 1)
         {
@@ -71,27 +68,27 @@ public class ItemActions : MonoBehaviour
                 GetComponent<CharacterController>().enabled = false;
             }
 
-            else if (ropeConnect && ropeState && coolDownTimer <= 0)
+            else if (ropeConnect && ropeState)
             {
-                if (currentPlayer.thisGamepad.buttonWest.isPressed)
+                if (currentPlayer.thisGamepad.buttonEast.isPressed)
                 {
                     ropeJoint.connectedBody = null;
                     GetComponent<CharacterController>().enabled = true;
                     ropeConnect = false;
                     ropeState = false;
-                    coolDownTimer = 0.5f;
                 }
             }
         }
 
         else if (currentPlayer.keyboardOrGamepad && currentPlayer.heldItem != null)
         {
-            if (currentPlayer.thisKeyboard.fKey.isPressed)
+            if (currentPlayer.thisKeyboard.fKey.isPressed && coolDownTimer <= 0)
             {
                 itemfunction = currentPlayer.heldItem.itemName;
                 if (itemfunction == "Rope")
                 {
                     Rope();
+                    coolDownTimer = 0.5f;
                 }
             }
 
@@ -107,7 +104,7 @@ public class ItemActions : MonoBehaviour
 
             else if (ropeConnect && ropeState && coolDownTimer <= 0)
             {
-                if (currentPlayer.thisKeyboard.fKey.isPressed)
+                if (currentPlayer.thisKeyboard.eKey.isPressed)
                 {
                     ropeJoint.connectedBody = null;
                     GetComponent<CharacterController>().enabled = true;
