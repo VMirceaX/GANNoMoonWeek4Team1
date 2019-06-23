@@ -8,15 +8,17 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 8f;
     public float gravity = 30f;
-    private Vector3 moveDir = Vector3.zero;
+    public Vector3 moveDir = Vector3.zero;
     private CharacterController controller;
     public Gamepad thisGamepad;
     public Keyboard thisKeyboard;
     public bool keyboardOrGamepad; //true == keyboard, false == gamepad
     public float keyboardHorizontal, keyboardVertical;
     public float itemDistanceCheck;
-    public ItemActionScript[] sceneItems;
+    public PickupScript[] sceneItems;
     public GroupInventory inventory;
+    public Equipment heldItem;
+    public float ropeMoveForce;
 
     void Start()
     {
@@ -38,13 +40,13 @@ public class PlayerController : MonoBehaviour
     {
         SceneItemReCheck();
 
-        foreach (ItemActionScript item in sceneItems)
+        foreach (PickupScript item in sceneItems)
         {
             if (Vector3.Distance(item.transform.position, transform.position) <= itemDistanceCheck && thisGamepad != null)
             {
 
 
-                if (thisGamepad.buttonWest.isPressed)
+                if (thisGamepad.buttonEast.isPressed)
                 {
                     inventory.itemAmounts[item.item.itemName] = inventory.itemAmounts[item.item.itemName] + 1;
                     Debug.Log(inventory.itemAmounts[item.item.itemName]);
@@ -70,11 +72,47 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        PlayerMovement();
-        ItemPickup();
+        if (controller.enabled)
+        {
+            PlayerMovement();
+            ItemPickup();
+            moveDir.y -= gravity * Time.deltaTime;
+        }
 
+        else if (!controller.enabled)
+        {
+            if (keyboardOrGamepad)
+            {
+                if (keyboardHorizontal == 1)
+                {
+                    Rigidbody ropeMovement = GetComponent<Rigidbody>();
+                    ropeMovement.AddForce(ropeMoveForce, 0, 0);
+                }
+                
+                else if (keyboardHorizontal == -1)
+                {
+                    Rigidbody ropeMovement = GetComponent<Rigidbody>();
+                    ropeMovement.AddForce(ropeMoveForce * -1, 0, 0);
+                }
 
-        moveDir.y -= gravity * Time.deltaTime;
+                //else if (keyboardVertical == 1)
+                //{
+                //    Rigidbody ropeMovement = GetComponent<Rigidbody>();
+                //    ropeMovement.AddForce(0, 0, ropeMoveForce);
+                //}
+
+                //else if (keyboardVertical == -1)
+                //{
+                //    Rigidbody ropeMovement = GetComponent<Rigidbody>();
+                //    ropeMovement.AddForce(0, 0, ropeMoveForce * -1);
+                //}
+            }
+
+            else if (!keyboardOrGamepad)
+            {
+
+            }
+        }
     }
 
     void PlayerMovement()
@@ -128,8 +166,8 @@ public class PlayerController : MonoBehaviour
 
     void SceneItemReCheck()
     {
-        sceneItems = new ItemActionScript[FindObjectsOfType<ItemActionScript>().Length];
-        sceneItems = FindObjectsOfType<ItemActionScript>();
+        sceneItems = new PickupScript[FindObjectsOfType<PickupScript>().Length];
+        sceneItems = FindObjectsOfType<PickupScript>();
     }
 
 }
