@@ -14,6 +14,7 @@ public class ItemActions : MonoBehaviour
     public float coolDownTimer;
     public string itemfunction;
     public Rigidbody rb;
+    public GroupInventory inv;
 
     void Start()
     {
@@ -55,6 +56,7 @@ public class ItemActions : MonoBehaviour
                 if (itemfunction == "Rope")
                 {
                     Rope();
+                    inv.itemAmounts[Rope] = -1;
                 }
             }
 
