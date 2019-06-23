@@ -53,10 +53,10 @@ public class ItemActions : MonoBehaviour
             if (currentPlayer.thisGamepad.buttonWest.isPressed)
             {
                 itemfunction = currentPlayer.heldItem.itemName;
-                if (itemfunction == "Rope")
+                if (itemfunction == "Rope" && inv.itemAmounts["Rope"] != 0)
                 {
                     Rope();
-                    inv.itemAmounts[Rope] = -1;
+                    inv.itemAmounts["Rope"] = inv.itemAmounts["Rope"] -1;
                 }
             }
 
@@ -87,10 +87,10 @@ public class ItemActions : MonoBehaviour
             if (currentPlayer.thisKeyboard.fKey.isPressed && coolDownTimer <= 0)
             {
                 itemfunction = currentPlayer.heldItem.itemName;
-                if (itemfunction == "Rope")
+                if (itemfunction == "Rope" && inv.itemAmounts["Rope"] != 0)
                 {
                     Rope();
-                    coolDownTimer = 0.5f;
+                    inv.itemAmounts["Rope"] = inv.itemAmounts["Rope"] - 1;
                 }
             }
 

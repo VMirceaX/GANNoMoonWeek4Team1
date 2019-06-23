@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
     public Keyboard keyboard;
     public Gamepad gamepad1, gamepad2, gamepad3, gamepad4;
     public PlayerController player1, player2, player3, player4;
-    public int players, assignedControllers;
+    public int players, assignedControllers, playersAlive;
 
     void Start()
     {
@@ -58,16 +58,6 @@ public class InputManager : MonoBehaviour
                 gamepad4 = gamepads[i];
                 Debug.Log("Assigned");
                 assignedControllers += 1;
-            }
-
-            else if (gamepad1 != null && gamepad2 != null && gamepad3 != null && gamepad4 != null)
-            {
-                Debug.Log("All Controllers Assigned");
-            }
-
-            else
-            {
-                Debug.Log(gamepad1 + " " + gamepad2 + " " + gamepad3 + " " + gamepad4);
             }
         }
     }
@@ -131,6 +121,29 @@ public class InputManager : MonoBehaviour
         else if(players == assignedControllers + 2)
         {
             Debug.Log("Too many players, not enough controllers");
+        }
+    }
+
+    public void Dead(string player)
+    {
+        if (player == "player1")
+        {
+            player1.enabled = false;
+        }
+
+        else if (player == "player2")
+        {
+            player2.enabled = false;
+        }
+
+        else if (player == "player3")
+        {
+            player3.enabled = false;
+        }
+
+        else if (player == "player4")
+        {
+            player4.enabled = false;
         }
     }
 }
