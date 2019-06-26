@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Rope
   m_EditorClassIdentifier: 
   itemName: Rope
-  weight: 2
+  weight: 1
   image: {fileID: 21300000, guid: ea11fbc3845a1fb419a6aa8e1aa39eac, type: 3}
