@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
@@ -12,12 +13,19 @@ public class InputManager : MonoBehaviour
     public PlayerController player1, player2, player3, player4;
     public Image playerIcon1, playerIcon2, playerIcon3, playerIcon4;
     public int players, assignedControllers, playersAlive;
+    public GameObject variableStorage;
 
     void Start()
     {
         gamepads = Gamepad.all.ToArray();
+        variableStorage = GameObject.Find("InfoHolder");
+        if (variableStorage != null)
+        {
+            players = variableStorage.GetComponent<VariableStorage>().playersChosen;
+        }
         AssignControllers();
         AssignPlayers();
+
     }
 
     void Update()
@@ -133,11 +141,6 @@ public class InputManager : MonoBehaviour
             Dead("player4");
             playerIcon4.enabled = false;
             playerIcon3.enabled = false;
-        }
-
-        else if(players == assignedControllers + 2)
-        {
-            Debug.Log("Too many players, not enough controllers");
         }
     }
 

@@ -146,24 +146,25 @@ public class PlayerController : MonoBehaviour
             if (thisGamepad.buttonNorth.isPressed && !coolDownActive2)
             {
                 Debug.Log(inventory.itemAmounts[heldItem.itemName]);
-                if (heldItem.itemName == "Rope" && !(inventory.itemAmounts["Rope"] <= 0))
+                if (heldItem.itemName == "Rope" && !(inventory.itemAmounts["Rope"] <= 0) && !(inventory.groupWeight <= 0))
                 {
                     Instantiate(rope, transform.position + new Vector3 (-1.5f, 0, 0), new Quaternion(0, 0, 0, 0), null);
                     inventory.itemAmounts[heldItem.itemName] = inventory.itemAmounts[heldItem.itemName] - 1;
                 }
 
-                else if (heldItem.itemName == "Gold" && !(inventory.itemAmounts["Gold"] <= 0))
+                else if (heldItem.itemName == "Gold" && !(inventory.itemAmounts["Gold"] <= 0) && !(inventory.groupWeight <= 0))
                 {
                     Instantiate(gold, transform.position + new Vector3(-1.5f, 0, 0), new Quaternion(0, 0, 0, 0), null);
                     inventory.itemAmounts[heldItem.itemName] = inventory.itemAmounts[heldItem.itemName] - 1;
                 }
 
-                else if (heldItem.itemName == "Body" && !(inventory.itemAmounts["Body"] <= 0))
+                else if (heldItem.itemName == "Body" && !(inventory.itemAmounts["Body"] <= 0) && !(inventory.groupWeight <= 0))
                 {
                     Instantiate(body, transform.position + new Vector3(-1.5f, 0, 0), new Quaternion(0, 0, 0, 0), null);
                     inventory.itemAmounts[heldItem.itemName] = inventory.itemAmounts[heldItem.itemName] - 1;
                 }
 
+                SceneItemReCheck();
                 inventory.ItemCollected();
 
                 coolDownActive2 = true;
@@ -177,24 +178,25 @@ public class PlayerController : MonoBehaviour
             {
                 inventory.itemAmounts[heldItem.itemName] = inventory.itemAmounts[heldItem.itemName] - 1;
                 Debug.Log(inventory.itemAmounts[heldItem.itemName]);
-                if (heldItem.itemName == "Rope" && !(inventory.itemAmounts["Rope"] <= 0))
+                if (heldItem.itemName == "Rope" && !(inventory.itemAmounts["Rope"] <= 0) && !(inventory.groupWeight <= 0))
                 {
                     Instantiate(rope, transform.position + new Vector3(-1.5f, 0, 0), new Quaternion(0, 0, 0, 0), null);
                     inventory.itemAmounts[heldItem.itemName] = inventory.itemAmounts[heldItem.itemName] - 1;
                 }
 
-                else if (heldItem.itemName == "Gold" && !(inventory.itemAmounts["Gold"] <= 0))
+                else if (heldItem.itemName == "Gold" && !(inventory.itemAmounts["Gold"] <= 0) && !(inventory.groupWeight <= 0))
                 {
                     Instantiate(gold, transform.position + new Vector3(-1.5f, 0, 0), new Quaternion(0, 0, 0, 0), null);
                     inventory.itemAmounts[heldItem.itemName] = inventory.itemAmounts[heldItem.itemName] - 1;
                 }
 
-                else if (heldItem.itemName == "Body" && !(inventory.itemAmounts["Body"] <= 0))
+                else if (heldItem.itemName == "Body" && !(inventory.itemAmounts["Body"] <= 0) && !(inventory.groupWeight <= 0))
                 {
                     Instantiate(body, transform.position + new Vector3(-1.5f, 0, 0), new Quaternion(0, 0, 0, 0), null);
                     inventory.itemAmounts[heldItem.itemName] = inventory.itemAmounts[heldItem.itemName] - 1;
                 }
 
+                SceneItemReCheck();
                 inventory.ItemCollected();
 
                 coolDownActive2 = true;
